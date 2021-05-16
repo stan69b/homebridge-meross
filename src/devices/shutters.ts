@@ -172,6 +172,7 @@ export class Shutter {
               timestamp: this.device.timestamp,
               sign: `${this.device.sign}`,
               payloadVersion: 1,
+              triggerSrc: 'iOSLocal',
             },
           },
         },
@@ -206,7 +207,7 @@ export class Shutter {
     this.Payload = {
       position: {
         channel: this.device.channel || 0,
-        position: this.Open ? 100 : 0,
+        position: this.Open ? 100 : 0, // 100 top, 0 bottom, -1 stop.
       },
     };
 
