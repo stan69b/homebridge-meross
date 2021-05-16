@@ -217,7 +217,7 @@ export class Shutter {
         messageId: `${this.device.messageId}`,
         method: 'SET',
         from: `http://${this.device.deviceUrl}/config`,
-        namespace: 'Appliance.Shutter.State',
+        namespace: 'Appliance.RollerShutter.Position',
         timestamp: this.device.timestamp,
         sign: `${this.device.sign}`,
         payloadVersion: 1,
@@ -228,7 +228,7 @@ export class Shutter {
     // Make request
     const push = await this.platform.axios({
       url: `http://${this.device.deviceUrl}/config`,
-      method: 'SET',
+      method: 'post',
       data: this.Data,
     },
     );
