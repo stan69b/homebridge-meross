@@ -42,6 +42,7 @@ export type payload = {
   toggle?: toggle;
   light?: light;
   state?: state;
+  position?: position;
 };
 
 export type togglex = {
@@ -65,6 +66,11 @@ export type state = {
   open: number;
   uuid: string;
 };
+
+export type position = {
+  channel: string;
+  position: number;
+}
 
 export type header = {
   messageId: string;

@@ -2,6 +2,7 @@ import { API, DynamicPlatformPlugin, Logger, PlatformAccessory, Service, Charact
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { PLATFORM_NAME, PLUGIN_NAME, MerossCloudPlatformConfig } from './settings';
 import { GarageDoor } from './devices/garagedoors';
+import { Shutter } from './devices/shutters';
 import { lightBulb } from './devices/lightbulbs';
 import { Outlet } from './devices/outlets';
 import { Switch } from './devices/switches';
@@ -180,6 +181,9 @@ export class Meross implements DynamicPlatformPlugin {
           case 'MSG200':
             new GarageDoor(this, existingAccessory, device);
             break;
+          case 'MRS100':
+            new Shutter(this, existingAccessory, device);
+            break;
           case 'MSS210':
           case 'MSS310':
           case 'MSS420F':
@@ -226,6 +230,9 @@ export class Meross implements DynamicPlatformPlugin {
           case 'MSG100':
           case 'MSG200':
             new GarageDoor(this, accessory, device);
+            break;
+          case 'MRS100':
+            new Shutter(this, existingAccessory, device);
             break;
           case 'MSS210':
           case 'MSS310':
