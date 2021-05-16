@@ -29,8 +29,7 @@
                         "description": "Meross Product Model.",
                         "type": "string",
                         "required": true,
-                        "oneOf": [
-                            {
+                        "oneOf": [{
                                 "title": "MSS-110 1.0",
                                 "enum": [
                                     "MSS110-1"
@@ -179,6 +178,12 @@
                                 "enum": [
                                     "MSG200"
                                 ]
+                            },
+                            {
+                                "title": "MRS-100",
+                                "enum": [
+                                    "MRS100"
+                                ]
                             }
                         ]
                     },
@@ -260,41 +265,37 @@
             "description": "Indicates the number of seconds between pushes to Meross Device."
         }
     },
-    "layout": [
-        {
+    "layout": [{
             "type": "fieldset",
             "title": "Devices",
             "expandable": true,
             "expanded": true,
-            "items": [
-                {
-                    "key": "devices",
-                    "notitle": true,
-                    "type": "array",
-                    "orderable": false,
-                    "buttonText": "Add Device",
-                    "items": [
-                        "devices[].name",
-                        "devices[].model",
-                        "devices[].serialNumber",
-                        "devices[].firmwareRevision",
-                        "devices[].deviceUrl",
-                        "devices[].channel",
-                        "devices[].messageId",
-                        "devices[].timestamp",
-                        "devices[].sign",
-                        "devices[].garageDoorOpeningTime"
-                    ]
-                }
-            ]
+            "items": [{
+                "key": "devices",
+                "notitle": true,
+                "type": "array",
+                "orderable": false,
+                "buttonText": "Add Device",
+                "items": [
+                    "devices[].name",
+                    "devices[].model",
+                    "devices[].serialNumber",
+                    "devices[].firmwareRevision",
+                    "devices[].deviceUrl",
+                    "devices[].channel",
+                    "devices[].messageId",
+                    "devices[].timestamp",
+                    "devices[].sign",
+                    "devices[].garageDoorOpeningTime"
+                ]
+            }]
         },
         {
             "type": "fieldset",
             "title": "Advanced Settings",
             "expandable": true,
             "expanded": false,
-            "items": [
-                {
+            "items": [{
                     "type": "help",
                     "helpvalue": "<h5>Refresh Rate</h5><em class='primary-text'>Refresh Rate indicates the number of seconds between polls to the Meross Device.</em>"
                 },

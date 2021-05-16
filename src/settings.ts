@@ -68,7 +68,7 @@ export type state = {
 };
 
 export type position = {
-  channel: string;
+  channel: number;
   position: number;
 }
 

@@ -205,7 +205,7 @@ export class Shutter {
     // Payload
     this.Payload = {
       position: {
-        channel: `${this.device.channel}`,
+        channel: this.device.channel || 0,
         position: this.Open ? 100 : 0,
       },
     };
@@ -228,7 +228,7 @@ export class Shutter {
     // Make request
     const push = await this.platform.axios({
       url: `http://${this.device.deviceUrl}/config`,
-      method: 'post',
+      method: 'SET',
       data: this.Data,
     },
     );
