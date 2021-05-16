@@ -50,8 +50,8 @@ export class Shutter {
     // you can create multiple services for each accessory
 
     (this.service =
-      accessory.getService(this.platform.Service.ShutterOpener) ||
-      accessory.addService(this.platform.Service.ShutterOpener)), device.name!;
+      accessory.getService(this.platform.Service.GarageDoorOpener) ||
+      accessory.addService(this.platform.Service.GarageDoorOpener)), device.name!;
     this.startUpdatingDoorState();
 
     // Set Name Characteristic
