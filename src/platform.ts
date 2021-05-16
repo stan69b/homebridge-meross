@@ -232,7 +232,7 @@ export class Meross implements DynamicPlatformPlugin {
             new GarageDoor(this, accessory, device);
             break;
           case 'MRS100':
-            new Shutter(this, existingAccessory, device);
+            new Shutter(this, accessory, device);
             break;
           case 'MSS210':
           case 'MSS310':
