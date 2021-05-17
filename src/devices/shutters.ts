@@ -177,6 +177,7 @@ export class Shutter {
           },
         },
         )).data;
+      this.platform.log.info('STAN Test - %s %s -', this.device.model, this.accessory.displayName, JSON.stringify(deviceStatus)),
       this.platform.log.debug(
         '%s %s refreshStatus -',
         this.device.model,
