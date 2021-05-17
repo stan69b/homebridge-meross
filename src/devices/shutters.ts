@@ -160,7 +160,7 @@ export class Shutter {
       this.platform.log.debug('%s - Reading', this.device.model, `${this.device.deviceUrl}/status`);
       const deviceStatus = (
         await this.platform.axios({
-          url: `http://${this.device.deviceUrl}/config`,
+          url: `http://${this.device.deviceUrl}/status`,
           method: 'post',
           data: {
             payload: {},
