@@ -235,9 +235,9 @@ export class Shutter {
     });
     setTimeout(() => {
       if (this.Open) {
-        this.platform.Characteristic.TargetDoorState = Characteristic.CLOSED;
+        this.service.updateCharacteristic(this.platform.Characteristic.TargetDoorState, CharacteristicValue.CLOSED);
       } else {
-        this.platform.Characteristic.TargetDoorState = Characteristic.OPEN;
+        this.service.updateCharacteristic(this.platform.Characteristic.TargetDoorState, CharacteristicValue.OPEN);
       }
     }, 20000);
     if (this.Open === 0 ) {
