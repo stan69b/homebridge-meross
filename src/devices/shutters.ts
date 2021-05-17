@@ -1,4 +1,4 @@
-import { Service, PlatformAccessory, CharacteristicValue, HAPStatus } from 'homebridge';
+import { Service, PlatformAccessory, CharacteristicValue, HAPStatus, Characteristic } from 'homebridge';
 import { Meross } from '../platform';
 import { interval, Subject } from 'rxjs';
 import { debounceTime, skipWhile, tap } from 'rxjs/operators';
@@ -160,7 +160,7 @@ export class Shutter {
       this.platform.log.debug('%s - Reading', this.device.model, `${this.device.deviceUrl}/status`);
       const deviceStatus = (
         await this.platform.axios({
-          url: `http://${this.device.deviceUrl}/status`,
+          url: `http://${this.device.deviceUrl}/config`,
           method: 'post',
           data: {
             payload: {},
@@ -232,8 +232,14 @@ export class Shutter {
       url: `http://${this.device.deviceUrl}/config`,
       method: 'post',
       data: this.Data,
-    },
-    );
+    });
+    setTimeout(() => {
+      if (this.Open) {
+        this.platform.Characteristic.TargetDoorState = Characteristic.CLOSED;
+      } else {
+        this.platform.Characteristic.TargetDoorState = Characteristic.OPEN;
+      }
+    }, 20000);
     if (this.Open === 0 ) {
       this.Request = 'Open';
     } else {
