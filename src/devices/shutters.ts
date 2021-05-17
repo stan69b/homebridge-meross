@@ -233,13 +233,13 @@ export class Shutter {
       method: 'post',
       data: this.Data,
     });
-    setTimeout(() => {
-      if (this.Open) {
-        this.service.updateCharacteristic(this.platform.Characteristic.TargetDoorState, CharacteristicValue.CLOSED);
-      } else {
-        this.service.updateCharacteristic(this.platform.Characteristic.TargetDoorState, CharacteristicValue.OPEN);
-      }
-    }, 20000);
+    // setTimeout(() => {
+    //   if (this.Open) {
+    //     this.service.updateCharacteristic(this.platform.Characteristic.TargetDoorState, CharacteristicValue.CLOSED);
+    //   } else {
+    //     this.service.updateCharacteristic(this.platform.Characteristic.TargetDoorState, CharacteristicValue.OPEN);
+    //   }
+    // }, 20000);
     if (this.Open === 0 ) {
       this.Request = 'Open';
     } else {
