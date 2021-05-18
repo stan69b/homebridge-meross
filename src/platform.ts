@@ -2,7 +2,9 @@ import { API, DynamicPlatformPlugin, Logger, PlatformAccessory, Service, Charact
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { PLATFORM_NAME, PLUGIN_NAME, MerossCloudPlatformConfig } from './settings';
 import { GarageDoor } from './devices/garagedoors';
-import { Shutter } from './devices/shutters';
+import { RollerShutterCloseSwitch } from './devices/rollerShutter/rollerShutterCloseSwitches';
+import { RollerShutterOpenSwitch, } from './devices/rollerShutter/rollerShutterOpenSwitches';
+import { RollerShutterStopSwitch } from './devices/rollerShutter/rollerShutterStopSwitches';
 import { lightBulb } from './devices/lightbulbs';
 import { Outlet } from './devices/outlets';
 import { Switch } from './devices/switches';
@@ -182,7 +184,9 @@ export class Meross implements DynamicPlatformPlugin {
             new GarageDoor(this, existingAccessory, device);
             break;
           case 'MRS100':
-            new Shutter(this, existingAccessory, device);
+            new RollerShutterCloseSwitch(this, existingAccessory, device);
+            new RollerShutterOpenSwitch(this, existingAccessory, device);
+            new RollerShutterStopSwitch(this, existingAccessory, device);
             break;
           case 'MSS210':
           case 'MSS310':
@@ -232,7 +236,9 @@ export class Meross implements DynamicPlatformPlugin {
             new GarageDoor(this, accessory, device);
             break;
           case 'MRS100':
-            new Shutter(this, accessory, device);
+            new RollerShutterCloseSwitch(this, accessory, device);
+            new RollerShutterOpenSwitch(this, accessory, device);
+            new RollerShutterStopSwitch(this, accessory, device);
             break;
           case 'MSS210':
           case 'MSS310':
