@@ -180,9 +180,21 @@
                                 ]
                             },
                             {
-                                "title": "MRS-100",
+                                "title": "MRS-100-Open",
                                 "enum": [
-                                    "MRS100"
+                                    "MRS100-Open"
+                                ]
+                            },
+                            {
+                                "title": "MRS-100-Close",
+                                "enum": [
+                                    "MRS100-Close"
+                                ]
+                            },
+                            {
+                                "title": "MRS-100-Stop",
+                                "enum": [
+                                    "MRS100-Stop"
                                 ]
                             }
                         ]
