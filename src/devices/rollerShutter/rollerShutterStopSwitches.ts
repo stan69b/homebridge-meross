@@ -93,18 +93,8 @@ export class RollerShutterStopSwitch {
 
   parseStatus() {
     if (this.deviceStatus) {
-      this.platform.log.info("STAN TESTS");
-      this.platform.log.info(JSON.stringify(this.deviceStatus?.payload?.position));
-      this.platform.log.info("position[0]");
-      this.platform.log.info(JSON.stringify(this.deviceStatus?.payload?.position[0]));
-      this.platform.log.info("position[0].position");
-      this.platform.log.info(JSON.stringify(this.deviceStatus?.payload?.position[0].position));
-      this.platform.log.info("position.position");
-      this.platform.log.info(JSON.stringify(this.deviceStatus?.payload?.position.position));
-      this.platform.log.info("END STAN TEST");
-
-      if (this.deviceStatus?.payload?.position) {
-        const onOff = this.deviceStatus.payload.all.digest.togglex[`${this.device.channel}`].onoff;
+      if (this.deviceStatus?.payload?.position[0]) {
+        const onOff = this.deviceStatus.payload.position[0].position != 0;
         this.platform.log.debug('Retrieved status successfully: ', onOff);
         this.On = onOff;
       } else {
