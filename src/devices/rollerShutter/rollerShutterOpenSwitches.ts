@@ -93,7 +93,7 @@ export class RollerShutterOpenSwitch {
 
   parseStatus() {
     if (this.deviceStatus) {
-      if (this.deviceStatus?.payload?.position[0]) {
+      if (this.deviceStatus?.payload?.position && this.deviceStatus?.payload?.position[0]) {
         const onOff = this.deviceStatus.payload.position[0].position != 0;
         this.platform.log.debug('Retrieved status successfully: ', onOff);
         this.On = onOff;
@@ -117,7 +117,7 @@ export class RollerShutterOpenSwitch {
               messageId: `${this.device.messageId}`,
               method: 'GET',
               from: `http://${this.device.deviceUrl}/config`,
-              namespace: 'Appliance.System.All',
+              namespace: 'Appliance.RollerShutter.Position',
               timestamp: this.device.timestamp,
               sign: `${this.device.sign}`,
               payloadVersion: 1,

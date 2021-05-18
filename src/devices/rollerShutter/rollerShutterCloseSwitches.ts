@@ -93,7 +93,7 @@ export class RollerShutterCloseSwitch {
 
   parseStatus() {
     if (this.deviceStatus) {
-      if (this.deviceStatus?.payload?.position[0]) {
+      if (this.deviceStatus?.payload?.position && this.deviceStatus?.payload?.position[0]) {
         const onOff = this.deviceStatus.payload.position[0].position != 0;
         this.platform.log.debug('Retrieved status successfully: ', onOff);
         this.On = onOff;
@@ -125,7 +125,6 @@ export class RollerShutterCloseSwitch {
           },
         },
         )).data;
-      this.platform.log.info(JSON.stringify(deviceStatus.payload.position));
       this.platform.log.debug(
         '%s %s refreshStatus -',
         this.device.model,
