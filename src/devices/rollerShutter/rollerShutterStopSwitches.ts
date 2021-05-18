@@ -1,8 +1,8 @@
 import { Service, PlatformAccessory, CharacteristicValue, HAPStatus } from 'homebridge';
-import { Meross } from '../platform';
+import { Meross } from '../../platform';
 import { interval, Subject } from 'rxjs';
 import { debounceTime, skipWhile, tap } from 'rxjs/operators';
-import { DevicesConfig, data, PLATFORM_NAME, payload } from '../settings';
+import { DevicesConfig, data, PLATFORM_NAME, payload } from '../../settings';
 
 export class RollerShutterStopSwitch {
   private service: Service;
