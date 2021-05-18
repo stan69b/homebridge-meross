@@ -30,12 +30,12 @@ export class RollerShutterOpenSwitch {
 
     // Retrieve initial values and updateHomekit
     this.refreshStatus();
-
+    let deviceModel = this.device.model!.substr(0, this.device.model!.lastIndexOf("-"));
     // set accessory information
     accessory
       .getService(this.platform.Service.AccessoryInformation)!
       .setCharacteristic(this.platform.Characteristic.Manufacturer, PLATFORM_NAME)
-      .setCharacteristic(this.platform.Characteristic.Model, this.device.model!)
+      .setCharacteristic(this.platform.Characteristic.Model, deviceModel)
       .setCharacteristic(this.platform.Characteristic.SerialNumber, device.serialNumber || device.deviceUrl!)
       .setCharacteristic(this.platform.Characteristic.FirmwareRevision, device.firmwareRevision || device.deviceUrl!);
 
@@ -43,10 +43,10 @@ export class RollerShutterOpenSwitch {
     // you can create multiple services for each accessory
     (this.service =
       accessory.getService(this.platform.Service.Switch) ||
-      accessory.addService(this.platform.Service.Switch)), device.name! + " - Open";
+      accessory.addService(this.platform.Service.Switch)), device.name!;
 
     // Set Name Characteristic
-    this.service.setCharacteristic(this.platform.Characteristic.Name, device.name! + " - Open");
+    this.service.setCharacteristic(this.platform.Characteristic.Name, device.name!);
 
     // each service must implement at-minimum the "required characteristics" for the given service type
     // see https://developers.homebridge.io/#/service/WindowCovering
@@ -138,7 +138,7 @@ export class RollerShutterOpenSwitch {
       this.platform.log.error(
         '%s - Failed to refresh status of %s: %s',
         this.device.model,
-        this.device.name + " - Open",
+        this.device.name,
         JSON.stringify(e.message),
         this.platform.log.debug('%s %s -', this.device.model, this.accessory.displayName, JSON.stringify(e)),
       );
