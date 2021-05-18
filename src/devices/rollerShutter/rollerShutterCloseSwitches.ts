@@ -92,16 +92,18 @@ export class RollerShutterCloseSwitch {
   }
 
   parseStatus() {
-    if (this.deviceStatus) {
-      if (this.deviceStatus?.payload?.position && this.deviceStatus?.payload?.position[0]) {
-        const onOff = this.deviceStatus.payload.position[0].position == 100;
-        this.platform.log.debug('Retrieved status successfully: ', onOff);
-        this.On = onOff;
-      } else {
-        this.platform.log.debug('Retrieved status unsuccessfully.');
-        this.On = false;
-      }
-    }
+    // inconcistent code and don't wan't to bother with all this right now
+    // if (this.deviceStatus) {
+    //   if (this.deviceStatus?.payload?.position && this.deviceStatus?.payload?.position[0]) {
+    //     const onOff = this.deviceStatus.payload.position[0].position == 100;
+    //     this.platform.log.debug('Retrieved status successfully: ', onOff);
+    //     this.On = onOff;
+    //   } else {
+    //     this.platform.log.debug('Retrieved status unsuccessfully.');
+    //     this.On = false;
+    //   }
+    // }
+    this.On = false;
   }
 
   async refreshStatus() {

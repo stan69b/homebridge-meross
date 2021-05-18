@@ -92,16 +92,17 @@ export class RollerShutterOpenSwitch {
   }
 
   parseStatus() {
-    if (this.deviceStatus) {
-      if (this.deviceStatus?.payload?.position && this.deviceStatus?.payload?.position[0]) {
-        const onOff = this.deviceStatus.payload.position[0].position != 0;
-        this.platform.log.debug('Retrieved status successfully: ', onOff);
-        this.On = onOff;
-      } else {
-        this.platform.log.debug('Retrieved status unsuccessfully.');
-        this.On = false;
-      }
-    }
+    // if (this.deviceStatus) {
+    //   if (this.deviceStatus?.payload?.position && this.deviceStatus?.payload?.position[0]) {
+    //     const onOff = this.deviceStatus.payload.position[0].position != 0;
+    //     this.platform.log.debug('Retrieved status successfully: ', onOff);
+    //     this.On = onOff;
+    //   } else {
+    //     this.platform.log.debug('Retrieved status unsuccessfully.');
+    //     this.On = false;
+    //   }
+    // }
+    this.On = false;
   }
 
   async refreshStatus() {
