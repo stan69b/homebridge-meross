@@ -43,7 +43,7 @@ export class RollerShutterStopSwitch {
     // you can create multiple services for each accessory
     (this.service =
       accessory.getService(this.platform.Service.Switch) ||
-      accessory.addService(this.platform.Service.Switch)), device.name!;
+      accessory.addService(this.platform.Service.Switch)), device.name! + " - Stop";
 
     // Set Name Characteristic
     this.service.setCharacteristic(this.platform.Characteristic.Name, device.name! + " - Stop");
