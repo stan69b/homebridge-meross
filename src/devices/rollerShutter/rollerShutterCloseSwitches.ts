@@ -46,7 +46,7 @@ export class RollerShutterCloseSwitch {
       accessory.addService(this.platform.Service.Switch)), device.name!;
 
     // Set Name Characteristic
-    this.service.setCharacteristic(this.platform.Characteristic.Name, device.name!);
+    this.service.setCharacteristic(this.platform.Characteristic.Name, device.name! + " - Stop");
 
     // each service must implement at-minimum the "required characteristics" for the given service type
     // see https://developers.homebridge.io/#/service/WindowCovering
@@ -138,7 +138,7 @@ export class RollerShutterCloseSwitch {
       this.platform.log.error(
         '%s - Failed to refresh status of %s: %s',
         this.device.model,
-        this.device.name,
+        this.device.name + " - Stop",
         JSON.stringify(e.message),
         this.platform.log.debug('%s %s -', this.device.model, this.accessory.displayName, JSON.stringify(e)),
       );
