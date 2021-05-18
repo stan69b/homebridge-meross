@@ -35,7 +35,7 @@ export class RollerShutterCloseSwitch {
     accessory
       .getService(this.platform.Service.AccessoryInformation)!
       .setCharacteristic(this.platform.Characteristic.Manufacturer, PLATFORM_NAME)
-      .setCharacteristic(this.platform.Characteristic.Model, this.device.model! + "-C")
+      .setCharacteristic(this.platform.Characteristic.Model, this.device.model!)
       .setCharacteristic(this.platform.Characteristic.SerialNumber, device.serialNumber || device.deviceUrl!)
       .setCharacteristic(this.platform.Characteristic.FirmwareRevision, device.firmwareRevision || device.deviceUrl!);
 
