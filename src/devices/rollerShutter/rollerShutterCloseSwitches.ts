@@ -117,7 +117,7 @@ export class RollerShutterCloseSwitch {
               messageId: `${this.device.messageId}`,
               method: 'GET',
               from: `http://${this.device.deviceUrl}/config`,
-              namespace: 'Appliance.System.All',
+              namespace: 'Appliance.RollerShutter.Position',
               timestamp: this.device.timestamp,
               sign: `${this.device.sign}`,
               payloadVersion: 1,
@@ -125,6 +125,7 @@ export class RollerShutterCloseSwitch {
           },
         },
         )).data;
+      this.platform.log.info(deviceStatus);
       this.platform.log.debug(
         '%s %s refreshStatus -',
         this.device.model,
