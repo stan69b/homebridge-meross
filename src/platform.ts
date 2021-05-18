@@ -239,9 +239,13 @@ export class Meross implements DynamicPlatformPlugin {
           case 'MSG200':
             new GarageDoor(this, accessory, device);
             break;
-          case 'MRS100':
+          case 'MRS100-Close':
             new RollerShutterCloseSwitch(this, accessory, device);
+            break;
+          case 'MRS100-Open':
             new RollerShutterOpenSwitch(this, accessory, device);
+            break;
+          case 'MRS100-Stop':
             new RollerShutterStopSwitch(this, accessory, device);
             break;
           case 'MSS210':
