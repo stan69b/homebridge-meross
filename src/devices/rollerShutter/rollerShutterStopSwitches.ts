@@ -92,16 +92,18 @@ export class RollerShutterStopSwitch {
   }
 
   parseStatus() {
-    if (this.deviceStatus) {
-      if (this.deviceStatus?.payload?.position && this.deviceStatus?.payload?.position[0]) {
-        const onOff = this.deviceStatus.payload.position[0].position != 0;
-        this.platform.log.debug('Retrieved status successfully: ', onOff);
-        this.On = onOff;
-      } else {
-        this.platform.log.debug('Retrieved status unsuccessfully.');
-        this.On = false;
-      }
-    }
+    // if (this.deviceStatus) {
+    //   if (this.deviceStatus?.payload?.position && this.deviceStatus?.payload?.position[0]) {
+    //     const onOff = this.deviceStatus.payload.position[0].position != 0;
+    //     this.platform.log.debug('Retrieved status successfully: ', onOff);
+    //     this.On = onOff;
+    //   } else {
+    //     this.platform.log.debug('Retrieved status unsuccessfully.');
+    //     this.On = false;
+    //   }
+    // }
+    // this button should always be off af on means stop current shutter action
+    this.On = false;
   }
 
   async refreshStatus() {

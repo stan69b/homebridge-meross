@@ -94,7 +94,7 @@ export class RollerShutterCloseSwitch {
   parseStatus() {
     if (this.deviceStatus) {
       if (this.deviceStatus?.payload?.position && this.deviceStatus?.payload?.position[0]) {
-        const onOff = this.deviceStatus.payload.position[0].position != 0;
+        const onOff = this.deviceStatus.payload.position[0].position == 100;
         this.platform.log.debug('Retrieved status successfully: ', onOff);
         this.On = onOff;
       } else {
