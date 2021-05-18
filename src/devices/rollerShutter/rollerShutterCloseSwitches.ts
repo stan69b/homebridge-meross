@@ -154,7 +154,7 @@ export class RollerShutterCloseSwitch {
     this.Payload = {
       position: {
         channel: this.device.channel || 0,
-        position: this.On ? -1 : 0, // 100 top, 0 bottom, -1 stop.
+        position: this.On ? 0 : -1, // 100 top, 0 bottom, -1 stop.
       },
     };
 

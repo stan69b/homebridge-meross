@@ -153,7 +153,7 @@ export class RollerShutterOpenSwitch {
     this.Payload = {
       position: {
         channel: this.device.channel || 0,
-        position: -1, // 100 top, 0 bottom, -1 stop.
+        position: this.On ? 100 : -1, // 100 top, 0 bottom, -1 stop.
       },
     };
 
