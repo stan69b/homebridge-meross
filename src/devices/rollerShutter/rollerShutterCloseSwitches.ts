@@ -125,7 +125,7 @@ export class RollerShutterCloseSwitch {
           },
         },
         )).data;
-      this.platform.log.info(deviceStatus);
+      this.platform.log.info(JSON.stringify(deviceStatus.payload.position));
       this.platform.log.debug(
         '%s %s refreshStatus -',
         this.device.model,
